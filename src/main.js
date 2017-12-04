@@ -6,7 +6,7 @@ import Layout from './components/layout'
 import VueRouter from 'vue-router'
 import IndexPage from './pages/index'
 import DetailPage from './pages/detail'
-import DetailAnaPage from './pages/detail/analysis'
+import DetailAnaPage from './pages/detail/resource'
 
 import DetailCouPage from './pages/detail/count'
 import DetailForPage from './pages/detail/forecast'
@@ -29,10 +29,10 @@ let router = new VueRouter({
 		{
 			path:'/detail',
 			component:DetailPage,
-			redirect:'detail/analysis',
+			redirect:'detail/resource',
 			children:[
 				{
-					path:'analysis',
+					path:'resource',
 					component:DetailAnaPage
 				},				
 				{

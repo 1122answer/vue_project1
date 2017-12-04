@@ -27,23 +27,23 @@
 		  return {
 		    products: [
 		      {
-		        name: '数据统计',
+		        name: '自测系统',
 		        path: 'count',
 		        icon: require('../assets/images/1.png'),
 		        active: false
 		      },
 		      {
-		        name: '数据预测',
+		        name: '自助建站',
 		        path: 'forecast',
 		        active: false
 		      },
 		      {
-		        name: '流量分析',
-		        path: 'analysis',
+		        name: '慕课资源库',
+		        path: 'resource',
 		        active: false
 		      },
 		      {
-		        name: '广告发布',
+		        name: '考试系统',
 		        path: 'publish',
 		        active: false
 		      }
@@ -51,7 +51,7 @@
 		    imgMap: {
 		      '/detail/count': require("../assets/images/1.png"),
 		      '/detail/forecast': require("../assets/images/2.png"),
-		      '/detail/analysis': require("../assets/images/3.png"),
+		      '/detail/resource': require("../assets/images/3.png"),
 		      '/detail/publish': require("../assets/images/4.png")
 		    }
 		  }

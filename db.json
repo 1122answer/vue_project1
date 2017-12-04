@@ -22,7 +22,7 @@
     }
   ],
   "login": {
-    "username": "legend",
+    "username": "yudongdong",
     "userId": 123123
   },
   "getPrice": {
@@ -35,7 +35,7 @@
     "list": [
       {
         "orderId": "ddj123",
-        "product": "数据统计",
+        "product": "网站中心",
         "version": "高级版",
         "period": "1年",
         "buyNum": 2,
@@ -44,7 +44,7 @@
       },
       {
         "orderId": "yuj583",
-        "product": "流量分析",
+        "product": "动画中心",
         "version": "户外版",
         "period": "3个月",
         "buyNum": 1,
@@ -53,7 +53,16 @@
       },
       {
         "orderId": "pmd201",
-        "product": "广告发布",
+        "product": "视频中心",
+        "version": "商铺版",
+        "period": "3年",
+        "buyNum": 12,
+        "date": "2016-8-3",
+        "amount": "7890元"
+      },
+      {
+        "orderId": "pmd201",
+        "product": "平台中心",
         "version": "商铺版",
         "period": "3年",
         "buyNum": 12,
@@ -61,52 +70,5 @@
         "amount": "7890元"
       }
     ]
-  },
-  "productList": {
-    "pc": {
-      "title": "pc产品ddd",
-      "list": [
-        {
-          "name": "数据统计",
-          "url": "detail/analysis"
-        },
-        {
-          "name": "数据预测",
-          "url": "detail/analysis"
-        },
-        {
-          "name": "流量分析",
-          "url": "detail/analysis",
-          "hot": true
-        },
-        {
-          "name": "广告发布",
-          "url": "detail/analysis"
-        }
-      ]
-    },
-    "app": {
-      "title": "手机应用类",
-      "last": true,
-      "list": [
-        {
-          "name": "91助手",
-          "url": "http://weixin.com"
-        },
-        {
-          "name": "产品助手",
-          "url": "http://twitter.com",
-          "hot": true
-        },
-        {
-          "name": "智能地图",
-          "url": "http://maps.com"
-        },
-        {
-          "name": "团队语音",
-          "url": "http://phone.com"
-        }
-      ]
-    }
   }
 }

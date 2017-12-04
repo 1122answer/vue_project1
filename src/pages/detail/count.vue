@@ -1,5 +1,5 @@
 <template>
-<div>in count</div>
+<div>自测系统</div>
 </template>
 <script>
 	

@@ -1,85 +1,44 @@
 <template>
   <div class="index-wrap">
-  	<div class="index-left">
-  		<div class="index-left-block">
-  			<h2>全部产品</h2>
-  			<template v-for='product in productList'>
-	  			<h3>{{product.title}}</h3>
-	  			<ul>
-	  				<li v-for="item in product.list">
-	  					<a :href="item.url">{{item.name}}</a>
-	  					<span v-if="item.hot" sclass="hot-tag">Hot</span>
-	  				</li>
-	  			</ul>
-	  			<div class="hr" v-if="!product.last"></div>
-  			</template>
-  		</div>
-  		<div class="index-left-block lastest-news">
-	  	  <h2>最新消息</h2>
-	  	  <ul>
-	  	  	<li v-for="item in newsList">
-	  	  	  <a :href="item.url" class="new-item">{{ item.title }}</a>
-	  	  	</li>
-
-	  	  </ul>
-	  	</div>	
-  	</div> 
-	<div class="index-right">
-		<slide-show :slides="slides" @onchange="doSomething"></slide-show>
-		<div class= "index-board-list ">
-			<div class="index-board-item" v-for='(item,index) in boardList' :class="[{'line-last': index % 2 !==0},'index-board-'+item.id]">
-					<div class="index-board-item-inner">
-	    			<h2>{{item.title}}</h2>
-	    			<p>{{item.description}}</p>
-	    			<div class="index-board-button">
-	    				<a href="" class="button">立即购买</a>
-	    			</div>
-				</div>
-			</div>
-		</div>
-	</div>
-  </div>
-<!--   <div class="index-wrap">
-  <div class="index-left">
-    <div class="index-left-block">
-      <h2>全部产品</h2>
-      
-      <template v-for="product in productList">
-        <h3>{{ product.title}}</h3>
+    <div class="index-left">
+      <div class="index-left-block">
+        <h2>全部产品</h2>       
+        <template v-for="product in productList">
+          <h3>{{ product.title}}</h3>
+          <ul>
+            <li v-for="item in product.list">
+              <a :href="item.url">{{ item.name }}</a>
+              <span v-if="item.hot" class="hot-tag">HOT</span>
+            </li>
+          </ul>
+          <div v-if="!product.last" class="hr"></div>
+        </template>
+      </div>
+      <div class="index-left-block lastest-news">
+        <h2>最新消息</h2>
         <ul>
-          <li v-for="item in product.list">
-            <a :href="item.url">{{ item.name }}</a>
-            <span v-if="item.hot" class="hot-tag">HOT</span>
-          </li>
-        </ul>
-        <div v-if="!product.last" class="hr"></div>
-      </template>
-    </div>
-    <div class="index-left-block lastest-news">
-      <h2>最新消息</h2>
-      <ul>
-      	<li v-for="item in newsList">
-      	  <a :href="item.url" class="new-item">{{ item.title }}</a>
-      	</li>
+        	<li v-for="item in newsList">
+        	  <a :href="item.url" class="new-item">{{ item.title }}</a>
+        	</li>
 
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="index-right">
-  	<slide-show :slides='slides'></slide-show>
-  	<div class="index-board-list ">
-  		<div class="index-board-item" v-for='(item,index) in boardList' :class="[{'line-last': index % 2 !==0},'index-board-'+item.id]">
+    <div class="index-right">
+    	<slide-show :slides='slides'></slide-show>
+    	<div class="index-board-list ">
+    		<div class="index-board-item" v-for='(item,index) in boardList' :class="[{'line-last': index % 2 !==0},'index-board-'+item.id]">
  				<div class="index-board-item-inner">
 	    			<h2>{{item.title}}</h2>
 	    			<p>{{item.description}}</p>
 	    			<div class="index-board-button">
 	    				<a href="" class="button">立即购买</a>
 	    			</div>
-  			</div>
-  		</div>
-  	</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
   </div>
-</div> -->
 </template>
 <script>
 	import slideShow from'../components/slideShow.vue'
@@ -88,39 +47,21 @@
 			slideShow
 		},
 		created:function (){
-			this.getNews()	
-			this.getProduct()	
-		},
-		methods:{
-			getNews(){
-				this.$http.get('api/getNewsList')
-				.then((res) =>{
-					this.newsList=res.data
-				},function(err){
-					console.log(err)
-				})
-			},
-			getProduct(){
-				this.$http.get('api/productList')
-				.then((res) =>{
-					this.productList=res.data
-				},function(err){
-					console.log(err)
-				})
-			},
-			doSomething(){
-				console.log('run')
-			}
-
+			this.$http.get('api/getNewsList')
+			.then((res) =>{
+				this.newsList=res.data
+			},function(err){
+				console.log(err)
+			})
 		},
 		data(){
 			return {      
-				invTime: 5000,
+				invTime: 2000,
 			      slides: [
 			        {
 			          src: require('../assets/slideShow/pic1.jpg'),
 			          title: 'xxx1',
-			          href: 'detail/analysis'
+			          href: 'detail/resource'
 			        },
 			        {
 			          src: require('../assets/slideShow/pic2.jpg'),
@@ -140,29 +81,29 @@
 			      ],
 				boardList: [
 				  {
-				    title: '开放产品',
-				    description: '开放产品是一款开放产品',
+				    title: '网站品牌',
+				    description: '网站平台、精品资源',
 				    id: 'car',
-				    toKey: 'analysis',
+				    toKey: 'resource',
 				    saleout: false
 				  },
 				  {
-				    title: '品牌营销',
-				    description: '品牌营销帮助你的产品更好地找到定位',
+				    title: '软件系统',
+				    description: '软件系统、精品资源',
 				    id: 'earth',
 				    toKey: 'count',
 				    saleout: false
 				  },
 				  {
-				    title: '使命必达',
-				    description: '使命必达快速迭代永远保持最前端的速度',
+				    title: '视频制作',
+				    description: '视频制作、精品资源',
 				    id: 'loud',
 				    toKey: 'forecast',
 				    saleout: true
 				  },
 				  {
-				    title: '勇攀高峰',
-				    description: '帮你勇闯高峰，到达事业的顶峰',
+				    title: '动画仿真',
+				    description: '动画仿真、精品资源',
 				    id: 'hill',
 				    toKey: 'publish',
 				    saleout: false
@@ -170,7 +111,47 @@
 				],
 				newsList:[],
 				productList:{
-					
+					pc:{
+						title:'系统平台',
+						list:[
+							{
+							  name: '慕课资源库',
+							  url: 'detail/resource'
+							},
+							{
+							  name: '考试系统',
+							  url: 'detail/resource'
+							},
+							{
+							  name: '定岗实习系统',
+							  url: 'detail/resource',
+							  hot: true
+							},
+							{
+							  name: '微学平台',
+							  url: 'detail/resource'
+							}
+						]
+					},
+					app:{
+						title:'视频动画',
+						last:true,
+						list:[
+								{
+								  name: '视频中心',
+								  url: 'http://weixin.com'
+								},
+								{
+								  name: '动画中心',
+								  url: 'http://twitter.com',
+								  hot: true
+								},
+								{
+								  name: '微课堂',
+								  url: 'http://maps.com'
+								}
+						]
+					}
 				}
 			}
 		}
@@ -200,7 +181,7 @@
   margin-bottom: 20px;
 }
 .index-left-block h2 {
-  background: #4fc08d;
+  background: #f3645e;
   color: #fff;
   padding: 10px 15px;
   margin-bottom: 20px;
@@ -270,10 +251,4 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-</style>
-<style lang='less'>
-	@base: #f938ab;
-	.index-left-block h3 {
-		color: @base;
-	}
 </style>

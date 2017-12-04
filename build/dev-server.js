@@ -79,7 +79,7 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
-var server = app.listen(8080)
+var server = app.listen(4000)
 
 module.exports = {
   ready: readyPromise,
@@ -89,18 +89,18 @@ module.exports = {
 }
 
 
-//方法一 数据测试配置
-/*const jsonServer = require('json-server')
+/*//方法一 数据测试配置
+const jsonServer = require('json-server')
 const apiServer = jsonServer.create()
 const apiRouter = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
 apiServer.use(middlewares)
 apiServer.use('/api' , apiRouter)
-apiServer.listen(port + 1, () => {
+apiServer.listen(3000, () => {
   console.log('JSON Server is running')
-})
-*/
+})*/
+
 //方法二
 var apiServer = express()
 var bodyParser = require('body-parser')
@@ -110,7 +110,7 @@ var apiRouter = express.Router()
 var fs = require('fs')
 apiRouter.route('/:apiName')
 .all(function (req, res) {
-  fs.readFile('db.json', 'utf8', function (err, data) {
+  fs.readFile('./db.json', 'utf8', function (err, data) {
     if (err) throw err
     var data = JSON.parse(data)
     if (data[req.params.apiName]) {
@@ -125,10 +125,10 @@ apiRouter.route('/:apiName')
 
 
 apiServer.use('/api', apiRouter);
-apiServer.listen(3000, function (err) {
+apiServer.listen(3001, function (err) {
   if (err) {
     console.log(err)
     return
   }
-  console.log('Listening at http://localhost:' + 3000 + '\n')
+  console.log('Listening at http://localhost:' + 3001 + '\n')
 })

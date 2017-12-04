@@ -1,7 +1,8 @@
-# vuedemo4
+# web
 
-> A Vue.js project
+> 自己根据公司官网写的一个vue 小项目 ，主要用到技术有 vue router 、components 
 
+![](assets/demo.gif)
 ## Build Setup
 
 ``` bash
@@ -19,4 +20,3 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-#vue_project1

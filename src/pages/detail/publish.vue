@@ -1,5 +1,5 @@
 <template>
-<div>in publish</div>
+<div>考试系统</div>
 </template>
 <script>
 	
