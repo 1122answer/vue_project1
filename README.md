@@ -2,7 +2,7 @@
 
 > 自己根据公司官网写的一个vue 小项目 ，主要用到技术有 vue router 、components 
 
-![](assets/demo.gif)
+![](src/assets/demo.gif)
 ## Build Setup
 
 ``` bash
